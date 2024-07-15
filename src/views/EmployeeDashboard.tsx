@@ -83,7 +83,7 @@ const EmployeeDashboard = () => {
 
     return (
         <div className="flex flex-col items-center">
-            <h1 className="text-7xl w-[100%] mb-5 text-center font-bold bg-sky-600 p-[2vh] text-white text-shadow">PayTrack <br /><p className="text-base font-normal my-3">New User Registration</p></h1>
+            <h1 className="text-7xl w-[100%] mb-5 text-center font-bold bg-sky-600 p-[2vh] text-white text-shadow">PayTrack <br /><p className="text-base font-normal my-3">Employee Dashboard</p></h1>
 
             <form className="space-y-6 w-[80%] rounded-lg p-5 shadow-sm shadow-black" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-4">
