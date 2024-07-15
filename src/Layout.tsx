@@ -6,6 +6,7 @@ import { Navbar } from './components/Navbar'
 import Register from './views/EmployeeRegister'
 import EmployeeManagement from './views/EmployeeManagement'
 import EmployeeDashboard from './views/EmployeeDashboard'
+import PayrollModule from './views/PayrollModule'
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
         <Route path='/employee/dashboard' element={<EmployeeDashboard/>} />
         <Route path='/employee/attendance' element />
         <Route path='/employee/deductions' element />
-        <Route path='/employee/payroll' element />
+        <Route path='/payrolls' element={<PayrollModule/>} />
         <Route path='/employee/password-reset' element />
         <Route path="*" element={<h1 className='text-4xl animate-bounce text-red-600 text-center font-black my-[35%]'>404 Not Found! <br/> <Link to={"/"} className='text-purple-600 underline'>Back to home page</Link> </h1>} />
       </Routes>
