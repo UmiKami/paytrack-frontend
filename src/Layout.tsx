@@ -3,7 +3,7 @@ import Home from './views/Home'
 import ForgotPassword from './views/ForgotPassword'
 import Login from './views/Login'
 import { Navbar } from './components/Navbar'
-import Register from './views/Register'
+import Register from './views/EmployeeRegister'
 
 function App() {
 

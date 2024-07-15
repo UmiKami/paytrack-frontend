@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const Register = () => {
     const navigate = useNavigate()
 
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams] = useSearchParams()
     const [showTokenInput, setShowTokenInput] = useState(false)
 
     useEffect(() => {
