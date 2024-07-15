@@ -1,7 +1,19 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import axios from "../components/axiosConfig"
+import { useEffect } from "react"
 
 const Login = () => {
+    const navigate = useNavigate()
+
+    useEffect(() => {  
+        if (localStorage.getItem("token")) {
+            if (localStorage.getItem("role") == "admin") {
+                navigate("/admin/employee-management")
+            } else {
+                navigate("/employee/dashboard")
+            }
+        }
+    }, [])
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -11,9 +23,21 @@ const Login = () => {
             password: e.currentTarget.password.value
         }).then((response) => {
             console.log(response)
-            alert("Login successful.")
-        }).catch((error) => {
-            console.log(error)
+            
+            if (response.data["role"] == "admin") {
+                localStorage.setItem("token", response.data["access_token"])
+                localStorage.setItem("role", response.data["role"])
+
+                navigate("/admin/employee-management")
+            } else {
+                localStorage.setItem("token", response.data["access_token"])
+                localStorage.setItem("token", response.data["access_token"])
+
+                navigate("/employee/dashboard")
+            }
+
+        }).catch((_) => {
+            alert("Login failed.")
         })  
     }
 
