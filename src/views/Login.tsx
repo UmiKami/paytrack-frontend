@@ -19,25 +19,25 @@ const Login = () => {
 
 
     return (
-        <div className="h-[100vh]">
-            <h1 className="text-white font-black">PayTrack</h1>
+        <div className="h-[100vh] relative">
+            <h1 className="text-7xl text-center font-bold bg-sky-600 pb-[15vh] text-white text-shadow">PayTrack</h1>
 
-            <form onSubmit={handleSubmit}>
-                <div className="">
+            <form className="xl:w-[30%] md:w-[60%] sm:w-[80%] w-[100%] flex flex-col gap-3 rounded-lg px-20 py-10 bg-white drop-shadow-lg absolute top-[25%] left-1/2 transform -translate-x-1/2 -translate-y-1/2" onSubmit={handleSubmit}>
+                <div className="text-gray-600">
                     <label htmlFor="email">Email Address</label>
-                    <input type="email" name="email" id="email" className="block w-full p-2 my-2" />
+                    <input type="email" name="email" id="email" className="block w-full rounded-2xl p-2 my-2 border-[1px] border-opacity-40 border-gray-500" />
                 </div>
 
-                <div className="">
+                <div className="text-gray-600">
                     <label htmlFor="password">Password</label>
-                    <input type="password" name="password" id="password" className="block w-full p-2 my-2" />
+                    <input type="password" name="password" id="password" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" />
                 </div>
 
-                <button type="submit" className="bg-blue-500 text-white p-2 rounded w-full my-2">Login</button>
+                <button type="submit" className="bg-sky-600 rounded-2xl text-white p-2 text-xl w-full my-2">Log in</button>
 
-                <Link to="/forgot-passoword" className="text-center">Forgot password?</Link>
+                <Link to="/forgot-passoword" className="text-center text-lg text-sky-500">Forgot password?</Link>
                 <hr />
-                <Link to="/register" className="text-center">New User Registration</Link>
+                <Link to="/employee/register" className="text-center text-lg text-sky-500">New User Registration</Link>
             </form>
         </div>
     )
