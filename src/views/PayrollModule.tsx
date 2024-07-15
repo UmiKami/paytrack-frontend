@@ -114,7 +114,7 @@ const PayrollModule = () => {
             headers: {
                 Authorization: `Bearer ${token}`
             }
-        }).then((response) => {
+        }).then((_) => {
             alert("Payroll created successfully!")
             setNewPayroll({})
             handleEmployeeFetch(e) // Refresh the employee data to include the new payroll

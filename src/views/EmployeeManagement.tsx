@@ -106,7 +106,7 @@ const EmployeeManagement = () => {
         return (
             <td
                 className={`border px-4 py-2 ${isEditable ? 'cursor-pointer' : ''}`}
-                onDoubleClick={(e) => {
+                onDoubleClick={(_) => {
                     if (isEditable) {
                         const newValue = prompt(`Edit ${field}`, value.toString());
                         if (newValue !== null) {
