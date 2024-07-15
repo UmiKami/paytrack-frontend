@@ -79,8 +79,15 @@ const EmployeeManagement = () => {
             setEmployeeList(response.data["employee_list"])
             changeView("modify")
             alert("Employee added successfully.")
-        }).catch((_) => {
-            alert("Employee addition failed.")
+        }).catch((error) => {
+            if (error.response.status == 401) {
+                confirm("Unauthorized access. Please login.")
+
+                localStorage.removeItem("token")
+                localStorage.removeItem("role")
+
+                navigate("/login")
+            }
         })
     }
 
@@ -158,52 +165,52 @@ const EmployeeManagement = () => {
                         </div>
                         <div className="flex flex-col gap-2 w-[30%]">
                             <label htmlFor="email">Email Address</label>
-                            <input type="email" name="email" id="email" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" />
+                            <input type="email" name="email" id="email" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" required/>
                         </div>
                     </div>
 
                     <div className="flex gap-4">
                         <div className="flex flex-col gap-2 w-[30%]">
                             <label htmlFor="first_name">First Name</label>
-                            <input type="text" name="first_name" id="first_name" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" />
+                            <input type="text" name="first_name" id="first_name" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" required />
                         </div>
                         <div className="flex flex-col gap-2 w-[30%]">
                             <label htmlFor="last_name">Last Name</label>
-                            <input type="text" name="last_name" id="last_name" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" />
+                            <input type="text" name="last_name" id="last_name" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" required />
                         </div>
                     </div>
 
                     <div className="flex gap-4">
                         <div className="flex flex-col gap-2 w-[30%]">
                             <label htmlFor="address">Address</label>
-                            <input type="text" name="address" id="address" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" />
+                            <input type="text" name="address" id="address" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" required />
                         </div>
                         <div className="flex flex-col gap-2 w-[30%]">
                             <label htmlFor="phone">Phone</label>
-                            <input type="text" name="phone" id="phone" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" />
+                            <input type="text" name="phone" id="phone" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" required />
                         </div>
                     </div>
 
                     <div className="flex gap-4">
                         <div className="flex flex-col gap-2 w-[30%]">
                             <label htmlFor="department">Department</label>
-                            <input type="text" name="department" id="department" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" />
+                            <input type="text" name="department" id="department" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" required />
                         </div>
                         <div className="flex flex-col gap-2 w-[30%]">
                             <label htmlFor="position">Job Title</label>
-                            <input type="text" name="position" id="position" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" />
+                            <input type="text" name="position" id="position" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" required />
                         </div>
                     </div>
 
                     <div className="flex gap-4">
                         <div className="flex flex-col gap-2 w-[30%]">
                             <label htmlFor="salary">Salary</label>
-                            <input type="text" name="salary" id="salary" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" />
+                            <input type="text" name="salary" id="salary" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" required />
                         </div>
                         {/* Position Type Down Below */}
                         <div className="flex flex-col gap-2 w-[30%]">
                             <label htmlFor="position">Position</label>
-                            <input type="text" name="position" id="position" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" />
+                            <input type="text" name="position" id="position" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" required />
                         </div>
 
                     </div>
@@ -211,7 +218,7 @@ const EmployeeManagement = () => {
                     <div className="flex">
                         <div className="flex flex-col gap-2 w-[30%]">
                             <label htmlFor="start_date">Hire Date</label>
-                            <input type="date" name="start_date" id="start_date" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" />
+                            <input type="date" name="start_date" id="start_date" className="block rounded-2xl border-[1px] border-opacity-40 border-gray-500 w-full p-2 my-2" required />
                         </div>
                     </div>
                     <div className="flex gap-4">
