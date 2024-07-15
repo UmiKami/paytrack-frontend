@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import Dropdown from "./Dropdown"
 
 export const Navbar = () => {
 
@@ -7,16 +8,23 @@ export const Navbar = () => {
         localStorage.removeItem("role")
     }
 
+    const isLoggedIn = !!localStorage.getItem('token'); // Assuming a token is stored in localStorage when logged in
+
+
     return (
-        <div className="w-100 flex justify-between px-2 bg-sky-400 text-white">
+        <nav className="w-100 flex justify-between px-2 py-1 bg-sky-400 text-white">
             <ul className="lg:w-[25%] md:w-[35%] sm:w-[50%] w-[100%] flex justify-between">
                 <li>User</li>
                 <li>Edit</li>
-                <li>Modules</li>
+                <li>
+                    <Dropdown />
+                </li>
                 <li>Tools</li>
                 <li>Help</li>
             </ul>
-            <Link to={"/"} onClick={handleClick}>Log Out</Link>
-        </div>
+            {isLoggedIn && <Link to="/" onClick={handleClick} className="px-4 bg-sky-600 rounded-md">
+                Log Out
+            </Link>}
+        </nav>
     )
 }
